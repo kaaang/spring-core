@@ -27,4 +27,12 @@ public class LogDemoController {
         logDemoService.logic("testId");
         return "OK";
     }
+
+    @RequestMapping("log")
+    @ResponseBody
+    public String log(HttpServletRequest request) throws InterruptedException {
+        String requestURL = request.getRequestURL().toString();
+        myLogger.setRequestURL(requestURL);
+        return "OK";
+    }
 }
